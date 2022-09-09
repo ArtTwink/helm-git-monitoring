@@ -19,6 +19,21 @@ with open('data.txt', 'w') as f:
 # print(encode1)
 helm_comment = re.findall(r'#.+', encode1)
 # print(type(helm_comment))
+
+# Name
 chart_name = []
 for i in helm_comment:
     chart_name.append(re.search('Source: (.+?)/', i).group(1))
+print(chart_name)
+
+# Essential
+essential_name = []
+for i in helm_comment:
+    essential_name.append(re.search('\/(.+?)\/', i).group(1))
+print(essential_name)
+
+# File name
+file_name = []
+for i in helm_comment:
+    file_name.append(re.search('\/.*', i))
+print(file_name)
