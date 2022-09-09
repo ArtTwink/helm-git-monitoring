@@ -15,10 +15,10 @@ with open('data.txt', 'w') as f:
     for item in encode1:
         f.write(item)
         # f.write("%s\n" % item.split(','))
-    print('Done')
-print(encode1)
-comment = re.findall(r'#.+', encode1)
-print(comment) 
-# print(encode1.split('#'), sep=',')
-# for i in list(encode1):
-#     print(i)
+    # print('Done')
+# print(encode1)
+helm_comment = re.findall(r'#.+', encode1)
+# print(type(helm_comment))
+chart_name = []
+for i in helm_comment:
+    chart_name.append(re.search('Source: (.+?)/', i).group(1))
